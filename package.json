@@ -1,0 +1,19 @@
+{
+  "name": "admin-project",
+  "version": "1.0.0",
+  "description": "Proyecto fullstack con Nest.js (Back) y Angular (Front)",
+  "scripts": {
+    "start": "concurrently \"npm run start:back\" \"npm run start:front\"",
+    "start:back": "cd Admin-Back && npm run start:dev",
+    "start:front": "cd Admin-Panel && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.1"
+  },
+  "dependencies": {
+    "@nestjs/config": "^4.0.2",
+    "@nestjs/typeorm": "^11.0.0",
+    "mysql2": "^3.15.1",
+    "typeorm": "^0.3.27"
+  }
+}

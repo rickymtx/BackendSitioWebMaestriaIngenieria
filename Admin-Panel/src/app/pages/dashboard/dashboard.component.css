@@ -1,0 +1,39 @@
+
+  /* Contenido */
+  
+  .main {
+    margin-left: 320px;
+    flex: 1;
+    padding: 40px;
+  }
+
+  .main h1 {
+    font-size: 32px;
+    color: #000;
+    margin-bottom: 10px;
+  }
+
+  .main p {
+    font-size: 18px;
+    color: #000;
+  }
+
+  .bienvenida-box {
+    margin-top: 40px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    width: 155%;
+  }
+
+  .bienvenida-box ul {
+    margin-top: 15px;
+    padding-left: 20px;
+  }
+
+  .bienvenida-box li {
+    margin-bottom: 10px;
+    color: #000;
+  }
+  
