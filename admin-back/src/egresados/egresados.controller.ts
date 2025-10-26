@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Put, Body } from '@nestjs/common';
 import { EgresadosService } from './egresados.service';
 import { Egresados } from './egresados.entity';
 
@@ -16,5 +16,14 @@ export class EgresadosController {
   @Get(':id')
   async getById(@Param('id') id: number): Promise<Egresados> {
     return this.egresadosService.findOne(id);
+  }
+
+  // PUT /egresados/:id
+  @Put(':id')
+  async update(
+    @Param('id') id: number,
+    @Body() updatedData: Partial<Egresados>,
+  ): Promise<Egresados> {
+    return this.egresadosService.update(id, updatedData);
   }
 }
