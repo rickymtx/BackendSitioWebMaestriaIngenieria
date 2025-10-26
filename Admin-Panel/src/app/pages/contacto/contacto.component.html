@@ -1,7 +1,67 @@
+<!-- Contacto -->
+<section class="about-section">
+  <div class="about-container">
+    <div class="about-text">
+      <h2>Contacto</h2>
+      <h3>Nuestras Instalaciones:</h3>
+      <p>
+        Las instalaciones del Programa de Maestría en Ingeniería, se localizan físicamente en el edificio
+        de la Unidad de Posgrado, Investigación y Desarrollo Tecnológico, UPIDET, localizado en el área
+        norte del Instituto Tecnológico de Durango, entre el Blvd. Felipe Pescador y el Blvd. Tecnológico.
+      </p>
 
-<!-- Navbar -->
-<body>
-  <header class="navbar-simple">
-    <h1>Contacto</h1>
-  </header>
-</body>
+      <!-- Tabla Contacto -->
+      <table id="tabla1" class="study-plan-table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Puesto</th>
+            <th>Correo Electrónico</th>
+            <th>Teléfono</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Filas de contactos existentes -->
+          <tr *ngFor="let contacto of contactos">
+            <td>{{ contacto.nombre }}</td>
+            <td>{{ contacto.puesto }}</td>
+            <td>{{ contacto.correo }}</td>
+            <td>{{ contacto.telefono }}</td>
+            <td>
+              <button class="edit-btnContacto">Editar</button>
+              <button (click)="eliminarContacto(contacto.id)" class="delete-btnContacto">
+                Eliminar
+              </button>
+            </td>
+          </tr>
+
+          <!-- Fila para agregar nuevo contacto (ahora al final) -->
+          <tr *ngIf="nuevoContacto">
+            <td><input [(ngModel)]="nuevoContacto.nombre" placeholder="Nombre" class="input-amplio"></td>
+            <td><input [(ngModel)]="nuevoContacto.puesto" placeholder="Puesto" class="input-amplio"></td>
+            <td><input [(ngModel)]="nuevoContacto.correo" placeholder="Correo" type="email" class="input-amplio"></td>
+            <td><input [(ngModel)]="nuevoContacto.telefono" placeholder="Teléfono" class="input-amplio"></td>
+            <td>
+              <button (click)="guardarNuevoContacto()" class="save-btnContacto">Guardar</button>
+              <button (click)="cancelarNuevoContacto()" class="cancel-btnContacto">Cancelar</button>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+
+      <!-- Mensajes de carga y errores -->
+      <div *ngIf="loading" class="loading-msg">Cargando contactos...</div>
+      <div *ngIf="!loading && contactos.length === 0" class="empty-msg">No hay contactos registrados.</div>
+      <div *ngIf="errorMsg" class="error-msg">{{ errorMsg }}</div>
+
+      <!-- Botón añadir contacto -->
+      <div class="actions">
+        <button (click)="agregarContacto()" class="añadir-btnContacto">
+          Añadir Contacto
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

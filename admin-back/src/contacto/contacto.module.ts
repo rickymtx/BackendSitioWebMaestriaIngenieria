@@ -1,4 +1,3 @@
-// src/contacto/contacto.module.ts
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Contacto } from './contacto.entity';
