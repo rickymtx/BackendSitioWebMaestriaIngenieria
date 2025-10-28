@@ -17,8 +17,31 @@ export class RequisitosIngresoService {
 
   // Obtener por categoría específica
   findByCategoria(categoria: CategoriaTipo): Promise<RequisitosIngreso[]> {
-    return this.requisitosRepository.find({
-      where: { categoria },
-    });
+    return this.requisitosRepository.find({ where: { categoria } });
+  }
+
+  // Crear un nuevo registro
+  async create(data: { categoria: CategoriaTipo; descripcion: string }): Promise<RequisitosIngreso> {
+    const nuevoRequisito = this.requisitosRepository.create(data);
+    return this.requisitosRepository.save(nuevoRequisito);
+  }
+
+  // Actualizar un registro existente
+  async update(
+    id_requisito: number,
+    data: { categoria?: CategoriaTipo; descripcion?: string },
+  ): Promise<{ updated: boolean }> {
+    const resultado = await this.requisitosRepository.update(
+      { id_requisito },
+      data,
+    );
+
+    return { updated: (resultado.affected ?? 0) > 0 };
+  }
+
+  // Eliminar un registro existente
+  async delete(id_requisito: number): Promise<{ deleted: boolean }> {
+    const resultado = await this.requisitosRepository.delete({ id_requisito });
+    return { deleted: (resultado.affected ?? 0) > 0 };
   }
 }
