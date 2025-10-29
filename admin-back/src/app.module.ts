@@ -37,6 +37,7 @@ import { LgacProyectosModule } from './productividadLGAC/lgacProyectos/lgacProye
 import { LgacProyectos2Module } from './productividadLGAC/lgacProyectos2/lgacProyectos2.module';
 import { LgacProyectos3Module } from './productividadLGAC/lgacProyectos3/lgacProyectos3.module';
 import { LgacProyectos4Module } from './productividadLGAC/lgacProyectos4/lgacProyectos4.module';
+import { NucleoBasicoModule } from './nucleoBasico/nucleoBasico.module';
  
 @Module({
   imports: [
@@ -86,6 +87,7 @@ import { LgacProyectos4Module } from './productividadLGAC/lgacProyectos4/lgacPro
     LgacProyectos2Module,
     LgacProyectos3Module,
     LgacProyectos4Module,
+    NucleoBasicoModule,
   ],
   controllers: [AppController],
   providers: [AppService],
