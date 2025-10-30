@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { NucleoBasicoCvu } from './nucleoBasicoCvu.entity';
 
-@Entity()
+@Entity('nucleo_basico')
 export class NucleoBasico {
   @PrimaryGeneratedColumn()
   id: number;
@@ -36,6 +36,9 @@ export class NucleoBasico {
   @Column({ length: 100, nullable: true })
   unidadAdscripcion: string;
 
-  @OneToMany(() => NucleoBasicoCvu, cvu => cvu.profesor, { cascade: true })
+  @OneToMany(() => NucleoBasicoCvu, (cvu) => cvu.profesor, {
+    cascade: true,
+    eager: true,
+  })
   cvu: NucleoBasicoCvu[];
 }

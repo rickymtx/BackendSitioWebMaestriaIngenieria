@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 import { NucleoBasico } from './nucleoBasico.entity';
 
-@Entity()
+@Entity('nucleo_basico_cvu')
 export class NucleoBasicoCvu {
   @PrimaryGeneratedColumn()
   id: number;
@@ -9,6 +9,8 @@ export class NucleoBasicoCvu {
   @Column()
   enlace: string;
 
-  @ManyToOne(() => NucleoBasico, profesor => profesor.cvu, { onDelete: 'CASCADE' })
+  @ManyToOne(() => NucleoBasico, (profesor) => profesor.cvu, {
+    onDelete: 'CASCADE',
+  })
   profesor: NucleoBasico;
 }
